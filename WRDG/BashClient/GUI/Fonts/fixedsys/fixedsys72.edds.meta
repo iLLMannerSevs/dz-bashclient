@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{59250C927856A015}WRDG/BashClient/GUI/Fonts/fixedsys/fixedsys72.edds"
+ Author "wrdg-2019"
+ ChangeDate 1334618696
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "fixedsys72.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}
