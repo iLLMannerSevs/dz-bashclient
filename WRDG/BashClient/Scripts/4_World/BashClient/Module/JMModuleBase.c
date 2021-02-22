@@ -1,4 +1,4 @@
 modded class JMModuleBase
 {
-	void OnScriptLog(string message) {}
+	void OnScriptLog(string message);
 }
