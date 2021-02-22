@@ -4,11 +4,13 @@ class BashConsoleView : ScriptViewTemplate<BashConsoleController>
 	
 	void AddReadoutLine(string message)
 	{
-		if (GetTemplateController().LogEntries) {
+		if (GetTemplateController().LogEntries) 
+		{
 			GetTemplateController().LogEntries.Insert(new BashTextEntryView(message));
 			
 			// Remove line when exceeds max lines
-			if (GetTemplateController().LogEntries.Count() >= MAX_LINE_COUNT) {
+			if (GetTemplateController().LogEntries.Count() >= MAX_LINE_COUNT) 
+			{
 				GetTemplateController().LogEntries.Remove(0);
 			}
 		}

@@ -34,8 +34,10 @@ class BashConsoleModule : JMModuleBase
 		super.OnUpdate(timeslice);
 
 		Input input = GetGame().GetInput();
-		if (input.LocalRelease("UAUIQuickbarToggle",false)) {
-			if (m_ConsoleView) {
+		if (input.LocalRelease("UAUIQuickbarToggle",false)) 
+		{
+			if (m_ConsoleView) 
+			{
 				m_ConsoleView.GetLayoutRoot().Show(!m_ConsoleView.GetLayoutRoot().IsVisible());
 			}
 		}
@@ -48,7 +50,8 @@ class BashConsoleModule : JMModuleBase
 		if (!m_ConsoleView)
 			return;
 
-		if (m_ConsoleView && m_ConsoleView.GetTemplateController().LogEntries) {
+		if (m_ConsoleView && m_ConsoleView.GetTemplateController().LogEntries) 
+		{
 			m_ConsoleView.AddReadoutLine(message);
 		}
 			
