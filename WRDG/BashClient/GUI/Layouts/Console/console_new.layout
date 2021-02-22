@@ -73,9 +73,16 @@ FrameWidgetClass console_root {
        vexactpos 0
        hexactsize 0
        vexactsize 0
-       text "placeholder"
+       scriptclass "ViewBinding"
+       text "help"
        "exact text" 1
        font "gui/fonts/system"
+       {
+        ScriptParamsClass {
+         Binding_Name "ConsoleInput"
+         Two_Way_Binding 1
+        }
+       }
       }
      }
     }
