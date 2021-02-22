@@ -1,0 +1,45 @@
+# DayZ SA Keys
+*.biprivatekey
+*.bikey
+
+# DayZ Binarize
+texHeaders.bin
+
+# Server/Mission storage
+**/storage_*/
+WRDG/BashClient/Missions/ServerProfile/**
+!WRDG/BashClient/Missions/ServerProfile/;)
+
+# User Configuration
+user.cfg
+
+# Text Editor Workspace Configuration
+.vscode/
+.idea/
+
+# Windows executables
+*.exe
+*.dll
+*.lnk
+
+# File archives
+*.rar
+*.zip
+*.7z
+*.pbo
+
+# Raw images
+*.png
+*.jpg
+*.jpeg
+*.tga
+
+# Raw models
+*.fbx
+*.obj
+
+# Log/Dumps
+*.log
+*.ADM
+*.RPT
+*.mdmp
