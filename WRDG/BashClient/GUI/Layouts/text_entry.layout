@@ -1,0 +1,30 @@
+FrameWidgetClass rootFrame {
+ position 0 0
+ size 1 25
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 1
+ scriptclass "BashTextEntryController"
+ {
+  TextWidgetClass text_entry {
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   scriptclass "ViewBinding"
+   text "log text"
+   font "system/system"
+   {
+    ScriptParamsClass {
+     Binding_Name "EntryText"
+    }
+   }
+  }
+ }
+}

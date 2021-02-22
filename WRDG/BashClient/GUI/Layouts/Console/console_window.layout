@@ -1,0 +1,147 @@
+FrameWidgetClass console_root {
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ scriptclass "BashConsoleController"
+ {
+  WindowWidgetClass console_window {
+   ignorepointer 1
+   position 0 0
+   size 0.75 0.35
+   halign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style rover_sim_black_2
+   {
+    ScrollWidgetClass scroller {
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     halign right_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     "Scrollbar V" 1
+     {
+      GridSpacerWidgetClass grid_spacer {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       scriptclass "ViewBinding"
+       "Size To Content V" 1
+       Columns 1
+       Rows 1
+       {
+        ScriptParamsClass {
+         Binding_Name "LogEntries"
+        }
+       }
+      }
+      EditBoxWidgetClass console_entry {
+       color 0.502 0.502 0.502 1
+       position 0 0
+       size 1 25
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 1
+       priority 1
+       style EditorProperty
+       text "placeholder"
+       "limit visible" 0
+       "exact text" 1
+       font "gui/fonts/fixedsys22"
+      }
+      FrameWidgetClass log_wrapper {
+       ignorepointer 1
+       position 0.01 0.1
+       size 0.2 25
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 1
+       {
+        ButtonWidgetClass log_folder {
+         color 0.502 0.502 0.502 0.5882
+         size 0.46 25
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 1
+         style Colorable
+         {
+          TextWidgetClass file_text {
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           text "Open Log File"
+           font "gui/fonts/system"
+           "text halign" center
+           "text valign" center
+          }
+         }
+        }
+        ButtonWidgetClass log_file {
+         color 0.502 0.502 0.502 0.5882
+         size 0.48 25
+         halign right_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 1
+         style Colorable
+         {
+          TextWidgetClass folder_text {
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           text "Open Log Folder"
+           font "gui/fonts/system"
+           "text halign" center
+           "text valign" center
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+ {
+  ScriptParamsClass {
+  }
+ }
+}
