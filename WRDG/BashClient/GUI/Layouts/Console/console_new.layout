@@ -64,7 +64,7 @@ FrameWidgetClass console_root {
         }
        }
       }
-      EditBoxWidgetClass console_input {
+      MultilineEditBoxWidgetClass console_input {
        position 0 0.01
        size 0.99 0.1
        halign center_ref
@@ -75,8 +75,9 @@ FrameWidgetClass console_root {
        vexactsize 0
        scriptclass "ViewBinding"
        text "help"
-       "exact text" 1
        font "gui/fonts/system"
+       "exact text" 1
+       lines 1
        {
         ScriptParamsClass {
          Binding_Name "ConsoleInput"
