@@ -48,8 +48,10 @@ class BashConsoleModule : JMModuleBase
 		if (!m_ConsoleView)
 			return;
 
-		if (m_ConsoleView && m_ConsoleView.GetTemplateController().LogEntries)
-			m_ConsoleView.GetTemplateController().LogEntries.Insert(new BashTextEntryView(message));
+		if (m_ConsoleView && m_ConsoleView.GetTemplateController().LogEntries) {
+			m_ConsoleView.AddReadoutLine(message);
+		}
+			
 	}
 
 	override bool IsServer()
