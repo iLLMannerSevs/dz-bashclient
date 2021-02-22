@@ -6,7 +6,7 @@ class BashConsoleView : ScriptViewTemplate<BashConsoleController>
 	{
 		if (GetTemplateController().LogEntries)
 		{
-			GetTemplateController().LogEntries.Insert(new BashTextEntryView(message));
+			GetTemplateController().LogEntries.Insert(message);
 
 			// Remove line when exceeds max lines
 			if (GetTemplateController().LogEntries.Count() >= MAX_LINE_COUNT)
