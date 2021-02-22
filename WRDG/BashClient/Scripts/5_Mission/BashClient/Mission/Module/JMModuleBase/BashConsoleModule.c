@@ -13,22 +13,20 @@ class BashConsoleModule : JMModuleBase
 	{
 		super.OnMissionStart();
 
-
+		m_ConsoleView = new BashConsoleView();
+		m_ConsoleView.GetLayoutRoot().Show(false);
 	}
 
 	override void OnMissionFinish()
 	{
 		super.OnMissionFinish();
 
-		if (m_ConsoleView)
-			delete m_ConsoleView;
+		delete m_ConsoleView;
 	}
 
 	override void OnMissionLoaded()
 	{
 		super.OnMissionLoaded();
-
-
 	}
 
 	override void OnUpdate(float timeslice)
@@ -36,12 +34,10 @@ class BashConsoleModule : JMModuleBase
 		super.OnUpdate(timeslice);
 
 		Input input = GetGame().GetInput();
-		if (input.LocalRelease("UAUIQuickbarToggle",false))
-		{
-			if (m_ConsoleView)
-				delete m_ConsoleView;
-			else
-				m_ConsoleView = new BashConsoleView();
+		if (input.LocalRelease("UAUIQuickbarToggle",false)) {
+			if (m_ConsoleView) {
+				m_ConsoleView.GetLayoutRoot().Show(!m_ConsoleView.GetLayoutRoot().IsVisible());
+			}
 		}
 	}
 
@@ -52,7 +48,7 @@ class BashConsoleModule : JMModuleBase
 		if (!m_ConsoleView)
 			return;
 
-		if (m_ConsoleView)
+		if (m_ConsoleView && m_ConsoleView.GetTemplateController().LogEntries)
 			m_ConsoleView.GetTemplateController().LogEntries.Insert(new BashTextEntryView(message));
 	}
 
