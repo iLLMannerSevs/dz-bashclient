@@ -1,0 +1,17 @@
+class BashScript
+{
+	// entry method
+	void Main()
+	{
+
+	}
+}
+
+ref BashScript s_BashScript;
+BashScript GetInstance()
+{
+	if (!s_BashScript)
+		s_BashScript = new BashScript();
+
+	return s_BashScript;
+}
