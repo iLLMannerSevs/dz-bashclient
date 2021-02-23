@@ -36,7 +36,7 @@ FrameWidgetClass console_root {
       ScrollWidgetClass scoller {
        ignorepointer 1
        position 0 0
-       size 0.99 0.89
+       size 0.995 0.89
        halign center_ref
        hexactpos 0
        vexactpos 0
