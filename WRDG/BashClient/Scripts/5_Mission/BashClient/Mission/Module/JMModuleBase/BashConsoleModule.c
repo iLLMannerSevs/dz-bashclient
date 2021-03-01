@@ -1,6 +1,6 @@
 class BashConsoleModule : JMModuleBase
 {
-	protected ref BashConsoleView m_ConsoleView;
+	protected ref BashConsoleMenuView m_ConsoleView;
 
 	override void OnInit()
 	{
@@ -13,7 +13,7 @@ class BashConsoleModule : JMModuleBase
 	{
 		super.OnMissionStart();
 
-		m_ConsoleView = new BashConsoleView();
+		m_ConsoleView = new BashConsoleMenuView();
 		m_ConsoleView.GetLayoutRoot().Show(false);
 	}
 
@@ -34,12 +34,20 @@ class BashConsoleModule : JMModuleBase
 		super.OnUpdate(timeslice);
 
 		Input input = GetGame().GetInput();
-		if (input.LocalRelease("UAUIQuickbarToggle",false)) 
-		{						
-			if (m_ConsoleView) 
+		if (input.LocalRelease("UAUIQuickbarToggle", false))
+		{
+			if (GetConsoleView())
 			{
-				m_ConsoleView.GetLayoutRoot().Show(!m_ConsoleView.GetLayoutRoot().IsVisible());
-				GetGame().GetUIManager().ShowUICursor(m_ConsoleView.GetLayoutRoot().IsVisible());
+				bool visible = GetConsoleView().IsVisible();
+				GetConsoleView().Show(!visible);
+			}
+		}
+		
+		if (input.LocalRelease("UAUIBack", false))
+		{
+			if (GetConsoleView())
+			{
+				GetConsoleView().Show(false);
 			}
 		}
 	}
@@ -48,14 +56,16 @@ class BashConsoleModule : JMModuleBase
 	{
 		super.OnScriptLog(message);
 
-		if (!m_ConsoleView)
-			return;
+		if (GetConsoleView())
+			GetConsoleView().AddReadoutLine(message);
+	}
 
-		if (m_ConsoleView) 
-		{
-			m_ConsoleView.AddReadoutLine(message);
-		}
-			
+	BashConsoleMenuView GetConsoleView()
+	{
+		if (!m_ConsoleView)
+			m_ConsoleView = new BashConsoleMenuView();
+
+		return m_ConsoleView;
 	}
 
 	override bool IsServer()

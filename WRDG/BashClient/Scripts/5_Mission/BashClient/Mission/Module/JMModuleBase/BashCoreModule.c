@@ -6,7 +6,7 @@ class BashCoreModule : JMModuleBase
 	{
 		super.OnInit();
 
-
+		MakeDirectory("$profile:BashClient/");
 	}
 
 	override void OnMissionStart()
@@ -38,9 +38,6 @@ class BashCoreModule : JMModuleBase
 
 		if (!m_HudView)
 			return;
-
-		//m_HudView.GetTemplateController().ScriptLogText = message;
-		//m_HudView.GetTemplateController().NotifyPropertyChanged("ScriptLogText");
 	}
 
 	override bool IsServer()

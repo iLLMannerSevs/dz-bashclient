@@ -8,4 +8,34 @@ modded class MissionBase
 			//GetGame().RequestExit(0);
 		}
 	}
+
+	override UIScriptedMenu CreateScriptedMenu(int id)
+	{
+		UIScriptedMenu menu = super.CreateScriptedMenu(id);
+
+		switch (id)
+		{
+			case MENU_BASH:
+			{
+				menu = new BashMenu();
+				break;
+			}
+		}
+
+		return menu;
+	}
+
+	override void OnEvent(EventType eventTypeId, Param params)
+	{
+		super.OnEvent(eventTypeId, params);
+
+		switch (eventTypeId)
+		{
+			case ScriptLogEventTypeID:
+			{
+				Param1<string> log_params = Param1<string>.Cast(params);
+				GetModuleManager().OnScriptLog(log_params.param1);
+			}
+		}
+	}
 }
